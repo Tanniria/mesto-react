@@ -8,20 +8,6 @@ export default function Main ({ onEditProfile, onAddPlace, onEditAvatar, onCardC
     const [userAvatar, setUserAvatar] = useState('');
     const [cards, setCards] = useState([]);
 
-    // useEffect(() => {
-    //     const useDataFromServer = [api.getUserInfo(), api.getInitialCards()];
-    //     let myId;
-    //     Promise.all(useDataFromServer)
-    //     .then(([data, cards]) => {
-    //         setUserName(data.name);
-    //         setUserDescription(data.about);
-    //         setUserAvatar(data.avatar);
-    //         setCards(cards);
-    //     })
-        // .catch((err) => {
-        //     console.log(`Ошибка: ${err}`)
-        //   });
-    // }, []);
     useEffect(() => {
         Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([data, cards]) => {
@@ -67,12 +53,12 @@ export default function Main ({ onEditProfile, onAddPlace, onEditAvatar, onCardC
 
             <section className="feed">
                 <ul className="feed__list">
-                    {cards.map((card) => { 
-                        <Card 
-                            card={card} 
-                            key={card._id}
-                            onCardClick={onCardClick}/>
-                    })}
+                {cards.map((card) => (
+                    <Card 
+                        card={card}
+                        key={card._id}
+                        onCardClick={onCardClick}/>
+                ))};
                 </ul>
             </section>
         </main>

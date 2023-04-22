@@ -13,7 +13,7 @@ export default function PopupWithForm(props) {
                 <button className="popup__button-save" 
                     type="submit"
                     aria-label="Сохранить">
-                    {`${props.buttonText || 'Сохранить'}`}</button>
+                    {props.buttonText}</button>
                 </form>
                 <button className="popup__button-close" 
                     type="button" 
