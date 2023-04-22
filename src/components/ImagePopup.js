@@ -5,8 +5,8 @@ export default function ImagePopup({ card, isOpen, onClose }) {
         <div className={`popup popup_img ${isOpen ? 'popup_opened' : ''}`}>
             <div className="popup__container-img">
                 <h2 className="popup__img-title">{card.name}</h2>
-                <img className="popup__img-zoom" 
-                    src={card.link} 
+                <img className="popup__img-zoom"
+                    src={card.link}
                     alt={card.name} />
                 <button className="popup__button-close"
                     type='button'

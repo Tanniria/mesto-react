@@ -1,11 +1,11 @@
 export class Api {
-    constructor({url, headers}) {
+    constructor({ url, headers }) {
         this._url = url;
         this._headers = headers;
     }
 
     _checkResponse(res) {
-        if(res.ok) {
+        if (res.ok) {
             return res.json();
         }
         return Promise.reject(`Ошибка: ${res.status}`);
@@ -16,7 +16,7 @@ export class Api {
             method: 'GET',
             headers: this._headers,
         })
-        .then((res) => this._checkResponse(res));
+            .then((res) => this._checkResponse(res));
     };
 
     getUserInfo() {
@@ -24,7 +24,7 @@ export class Api {
             method: 'GET',
             headers: this._headers,
         })
-        .then((res) => this._checkResponse(res))
+            .then((res) => this._checkResponse(res))
     };
 
     editUserInfo(data) {
@@ -36,7 +36,7 @@ export class Api {
                 about: data.job,
             }),
         })
-        .then((res) => this._checkResponse(res));
+            .then((res) => this._checkResponse(res));
     };
 
     addCard(data) {
@@ -49,7 +49,7 @@ export class Api {
                 link: data.link,
             }),
         })
-        .then((res) => this._checkResponse(res));
+            .then((res) => this._checkResponse(res));
     };
 
     deleteCard(cardId) {
@@ -58,7 +58,7 @@ export class Api {
             headers: this._headers,
             'Content-Type': 'application/json',
         })
-        .then((res) => this._checkResponse(res));
+            .then((res) => this._checkResponse(res));
     };
 
     likeCard(cardId) {
@@ -67,7 +67,7 @@ export class Api {
             headers: this._headers,
             'Content-Type': 'application/json',
         })
-        .then((res) => this._checkResponse(res));
+            .then((res) => this._checkResponse(res));
     };
 
     dislike(cardId) {
@@ -76,7 +76,7 @@ export class Api {
             headers: this._headers,
             'Content-Type': 'application/json',
         })
-        .then((res) => this._checkResponse(res));
+            .then((res) => this._checkResponse(res));
     };
 
     editAvatar(data) {
@@ -87,16 +87,16 @@ export class Api {
                 avatar: data.avatar,
             }),
         })
-        .then((res) => this._checkResponse(res));
+            .then((res) => this._checkResponse(res));
     };
 };
 
 const api = new Api({
     url: 'https://mesto.nomoreparties.co/v1/cohort-62',
     headers: {
-      Authorization: 'f71e956f-38a7-4a42-a0a9-eb7efb8f8d45',
-      'Content-Type': 'application/json'
+        Authorization: 'f71e956f-38a7-4a42-a0a9-eb7efb8f8d45',
+        'Content-Type': 'application/json'
     }
-  });
-  
+});
+
 export default api;

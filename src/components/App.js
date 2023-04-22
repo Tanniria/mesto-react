@@ -16,35 +16,35 @@ export default function App() {
 
     function handleEditProfileClick() {
         setIsEditProfilePopupOpen(true);
-    }
+    };
     function handleAddPlaceClick() {
         setIsAddPlacePopupOpen(true);
-    }
+    };
     function handleEditAvatarClick() {
         setIsEditAvatarPopupOpen(true);
-    }
+    };
     function handleCardClick(card) {
         setSelectedCard(card);
         setIsImagePopupOpen(true);
-    }
+    };
     function closeAllPopups() {
         setIsEditProfilePopupOpen(false);
         setIsAddPlacePopupOpen(false);
         setIsEditAvatarPopupOpen(false);
         setIsImagePopupOpen(false);
         setPopupWithFormOpen(false);
-    }
+    };
 
     return (
         <div className="page">
             <Header />
             <Main
-            onEditProfile={handleEditProfileClick}
-            onAddPlace={handleAddPlaceClick}
-            onEditAvatar={handleEditAvatarClick}
-            onCardClick={handleCardClick}
+                onEditProfile={handleEditProfileClick}
+                onAddPlace={handleAddPlaceClick}
+                onEditAvatar={handleEditAvatarClick}
+                onCardClick={handleCardClick}
             />
-            <Footer/>
+            <Footer />
             <PopupWithForm
                 name='profile'
                 title='Редактировать профиль'
@@ -59,7 +59,7 @@ export default function App() {
                         type="text"
                         minLength="2"
                         maxLength="40"
-                        required/>
+                        required />
                     <span className="popup__input-error"
                         id="name__input-error"></span>
                 </label>
@@ -71,7 +71,7 @@ export default function App() {
                         type="text"
                         minLength="2"
                         maxLength="200"
-                        required/>
+                        required />
                     <span className="popup__input-error"
                         id="job__input-error"></span>
                 </label>
@@ -90,17 +90,17 @@ export default function App() {
                         type="text"
                         minLength="2"
                         maxLength="30"
-                        required/>
+                        required />
                     <span className="popup__input-error"
                         id="title__input-error"></span>
                 </label>
                 <label>
                     <input className="popup__input popup__input_value_link"
                         id="link__input"
-                        name="link" 
+                        name="link"
                         placeholder="Ссылка на картинку"
-                        type="url" 
-                        required/>
+                        type="url"
+                        required />
                     <span className="popup__input-error"
                         id="link__input-error"></span>
                 </label>
@@ -113,13 +113,13 @@ export default function App() {
                 onClose={closeAllPopups}>
                 <label>
                     <input className="popup__input popup__input_value_avatar"
-                        id ="avatar__input"
+                        id="avatar__input"
                         name="avatar"
                         placeholder="Введите ссылку"
                         type="url"
-                        required/>
+                        required />
                     <span className="popup__input-error"
-                    id="avatar__input-error"></span>
+                        id="avatar__input-error"></span>
                 </label>
             </PopupWithForm>
             <PopupWithForm
@@ -128,10 +128,10 @@ export default function App() {
                 isOpen={isPopupWithFormOpen}
                 onClose={closeAllPopups}>
             </PopupWithForm>
-            <ImagePopup 
+            <ImagePopup
                 card={selectedCard}
                 isOpen={isImagePopupOpen}
-                onClose={closeAllPopups}/>
+                onClose={closeAllPopups} />
         </div>
     );
-}
+};
