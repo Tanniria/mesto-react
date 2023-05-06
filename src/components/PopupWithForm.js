@@ -8,14 +8,17 @@ export default function PopupWithForm(props) {
                 <form className={`popup__form popup__form_${props.name}`}
                     name={props.name}
                     method="post"
-                    noValidate>
+                    noValidate
+                    onSubmit={props.onSubmit}>
                     {props.children}
-                    <button className="popup__button-save"
+                    <button
+                        className="popup__button-save"
                         type="submit"
                         aria-label="Сохранить">
-                        {props.buttonText || 'Сохранить'}</button>
+                        {`${props.buttonText || 'Сохранить'}`}</button>
                 </form>
-                <button className="popup__button-close"
+                <button
+                    className="popup__button-close"
                     type="button"
                     aria-label="Выход"
                     onClick={props.onClose}></button>
