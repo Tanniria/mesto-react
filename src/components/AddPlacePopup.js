@@ -10,14 +10,14 @@ export default function AddPlacePopup({
     const [name, setName] = useState('');
     const [link, setLink] = useState('');
 
-    function handleChangeName(e) {
-        setName(e.target.value);
+    function handleChangeName(evt) {
+        setName(evt.target.value);
     };
-    function handleChangeLink(e) {
-        setLink(e.target.value);
+    function handleChangeLink(evt) {
+        setLink(evt.target.value);
     };
-    function handleSubmit(e) {
-        e.preventDefault();
+    function handleSubmit(evt) {
+        evt.preventDefault();
         onAddPlace({
             name,
             link,
