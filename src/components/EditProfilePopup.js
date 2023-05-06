@@ -39,8 +39,7 @@ export default function EditProfilePopup({
             buttonText={isLoading ? 'Сохранение...' : 'Сохранить'}
             isOpen={isOpen}
             onClose={onClose}
-            onSubmit={handleSubmit}
-        >
+            onSubmit={handleSubmit} >
             <label>
                 <input
                     className="popup__input popup__input_value_name"
