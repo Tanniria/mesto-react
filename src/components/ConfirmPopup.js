@@ -20,7 +20,6 @@ export default function ConfirmPopup({
             buttonText={isLoading ? 'Удаление...' : 'Да'}
             isOpen={isOpen}
             onClose={onClose}
-            onSubmit={handleSubmit}>
-        </PopupWithForm>
+            onSubmit={handleSubmit} />
     );
 };

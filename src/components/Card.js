@@ -24,34 +24,32 @@ export default function Card({
     };
 
     return (
-        <CurrentUserContext.Provider value={currentUser}>
-            <li className="feed__item">
-                {isOwn && (
+        <li className="feed__item">
+            {isOwn && (
+                <button
+                    className="feed__button-delete"
+                    type="button"
+                    aria-label="Удалить"
+                    onClick={handleCardDelete}></button>
+            )}
+            <img className="feed__img"
+                src={card.link}
+                alt={card.name}
+                onClick={handleClick} />
+            <div className="feed__overview">
+                <h2 className="feed__title">{card.name}</h2>
+                <div className="feed__like-container">
                     <button
-                        className="feed__button-delete"
+                        className={cardLikeButtonClassName}
                         type="button"
-                        aria-label="Удалить"
-                        onClick={handleCardDelete}></button>
-                )}
-                <img className="feed__img"
-                    src={card.link}
-                    alt={card.name}
-                    onClick={handleClick} />
-                <div className="feed__overview">
-                    <h2 className="feed__title">{card.name}</h2>
-                    <div className="feed__like-container">
-                        <button
-                            className={cardLikeButtonClassName}
-                            type="button"
-                            aria-label="Лайк"
-                            onClick={handleCardLike}></button>
-                        <p
-                            className="feed__like-counter">
-                            {card.likes.length}
-                        </p>
-                    </div>
+                        aria-label="Лайк"
+                        onClick={handleCardLike}></button>
+                    <p
+                        className="feed__like-counter">
+                        {card.likes.length}
+                    </p>
                 </div>
-            </li>
-        </CurrentUserContext.Provider>
+            </div>
+        </li>
     );
 };

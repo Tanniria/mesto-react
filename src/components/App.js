@@ -159,7 +159,7 @@ export default function App() {
                     isOpen={isConfirmPopupOpen}
                     onClose={closeAllPopups}
                     onConfirm={handleCardDelete}
-                    isLoading={isLoading}/>
+                    isLoading={isLoading} />
                 <ImagePopup
                     card={selectedCard}
                     isOpen={isImagePopupOpen}

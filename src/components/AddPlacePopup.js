@@ -1,33 +1,20 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import PopupWithForm from './PopupWithForm';
+import { useForm } from '../hooks/useForm';
 
 export default function AddPlacePopup({
     isOpen,
     onClose,
     onAddPlace,
-    isLoading
+    isLoading,
 }) {
-    const [name, setName] = useState('');
-    const [link, setLink] = useState('');
+    const { values, handleChange, setValues } = useForm({});
 
-    function handleChangeName(evt) {
-        setName(evt.target.value);
-    };
-    function handleChangeLink(evt) {
-        setLink(evt.target.value);
-    };
     function handleSubmit(evt) {
         evt.preventDefault();
-        onAddPlace({
-            name,
-            link,
-        });
+        onAddPlace(values);
+        setValues({ [evt.target.name]: '' });
     };
-
-    useEffect(() => {
-        setName('');
-        setLink('');
-    }, [isOpen]);
 
     return (
         <PopupWithForm
@@ -48,8 +35,8 @@ export default function AddPlacePopup({
                     minLength="2"
                     maxLength="30"
                     required
-                    onChange={handleChangeName}
-                    value={name}
+                    onChange={handleChange}
+                    value={values.name || ''}
                 />
                 <span
                     className="popup__input-error"
@@ -64,8 +51,8 @@ export default function AddPlacePopup({
                     placeholder="Ссылка на картинку"
                     type="url"
                     required
-                    onChange={handleChangeLink}
-                    value={link} />
+                    onChange={handleChange}
+                    value={values.link || ''} />
                 <span
                     className="popup__input-error"
                     id="link__input-error">
