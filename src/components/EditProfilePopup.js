@@ -23,7 +23,6 @@ export default function EditProfilePopup({
     function handleSubmit(evt) {
         evt.preventDefault();
         onUpdateUser(values);
-        setValues({ [evt.target.name]: '' });
     };
 
     return (

@@ -1,4 +1,4 @@
-// import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PopupWithForm from './PopupWithForm';
 import { useForm } from '../hooks/useForm';
 
@@ -10,10 +10,14 @@ export default function AddPlacePopup({
 }) {
     const { values, handleChange, setValues } = useForm({});
 
+    useEffect(() => {
+        setValues({});
+    }, [isOpen]);
+
     function handleSubmit(evt) {
         evt.preventDefault();
         onAddPlace(values);
-        setValues({ [evt.target.name]: '' });
+        setValues({});
     };
 
     return (
